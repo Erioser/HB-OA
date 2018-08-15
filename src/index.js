@@ -10,12 +10,9 @@ import './stylesheets/main.scss'
 //全局配置
 import './modules/config'
 
-import App from './App';
-
-import { 
-    BrowserRouter as Router
-} from 'react-router-dom'
-
+//全局路由
+import Router from './router'
+//store
 import store from './store'
 
 import { Provider } from 'react-redux' 
@@ -24,9 +21,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <Provider store = {store} >
-        <Router>
-            <App />
-        </Router>
+        <Router/>
     </Provider>
 , document.getElementById('root'));
 
