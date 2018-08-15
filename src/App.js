@@ -14,13 +14,13 @@ class App extends Component {
     //当路由切换的时候
     let {pathname} = props.location
     if ( pathname !== this.props.location.pathname ) {
-      this.checkLogin(props)
+      // this.checkLogin(props)
     }
   }
 
   componentWillMount () {
     //当直接进入某个路由的时候判断是否登录
-    this.checkLogin(this.props)
+    // this.checkLogin(this.props)
 
     //为bus绑定事件
     this.bus.on('change-loading', () => {
