@@ -14,17 +14,34 @@ class App extends Component {
     //当路由切换的时候
     let {pathname} = props.location
     if ( pathname !== this.props.location.pathname ) {
-      // this.checkLogin(props)
+      this.checkLogin(props)
     }
+
+    if ( pathname !== this.props.location.pathname ) {
+      if (pathname === '/attend/leave-work' || pathname === '/attend/mine') {
+        
+        if ( props.commons.user_state.level < 7 ) {
+          alert('没有权限')
+          this.props.history.go(-1)
+        }
+      }   
+    }
+
   }
 
   componentWillMount () {
-    //当直接进入某个路由的时候判断是否登录
-    // this.checkLogin(this.props)
+    //进入项目后就去获取用户登录状态
+    this.props.commons_actions.get_initial_user_state(() => {
+      //当直接进入某个路由的时候判断是否登录
+      this.checkLogin(this.props)
+    })
+
+    
 
     //为bus绑定事件
-    this.bus.on('change-loading', () => {
-      this.setState({ isLoading: !this.state.isLoading })
+    this.bus.on('change-loading', (bool) => {
+      console.log('更改， ',!this.state.isLoading)
+      this.setState({ isLoading: bool })
     })
 
   }
