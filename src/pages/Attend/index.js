@@ -1,12 +1,14 @@
 
 import React, { Component } from 'react'
 import './index.scss'
+
+import LineChart from './LineChart'
 class Attend extends Component {
     
     render () {
         return (
             <div className = "app-attend">
-                Hello ,this is Attend!
+               <LineChart/>
             </div>
         )
     }

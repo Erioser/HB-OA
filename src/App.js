@@ -18,7 +18,7 @@ class App extends Component {
     }
 
     if ( pathname !== this.props.location.pathname ) {
-      if (pathname === '/attend/leave-work' || pathname === '/attend/mine') {
+      if (pathname === '/attend/leave-work') {
         
         if ( props.commons.user_state.level < 7 ) {
           alert('没有权限')
